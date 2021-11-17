@@ -31,6 +31,21 @@ def change_making(coins, n: int):
                 m[c][r] = min(m[c - 1][r], 1 + m[c][r - coins[c - 1]])
     return m
 
+def optimal_selection(coins, amount, array):
+    solutions = []
+    while amount > 0:
+        max_val = float('inf')
+        index = 0
+        for i in range(len(coins), 0, -1):
+            if array[i][amount] <= max_val:
+                max_val = array[i][amount]
+                index = i
+            else:
+                break
+        amount = amount - coins[index - 1]
+        solutions.append(coins[index - 1])
+    return solutions
+
 def print_2d_array(array):
     for i in range(len(array)):
         for j in range(len(array[0])):
@@ -56,10 +71,13 @@ with st.form("coin_change_table"):
         df = pd.DataFrame(
             array,
             columns=(f"Amount = {i}" for i in range(0, amount+1)),
-            index=(["Coins = 0"] + [f"Coins = {c}" for c in coins])
+            index=(["Coins upto 0"] + [f"Coins upto {c}" for c in coins])
         )
         st.success("Table Successfully Generated")
         
 with st.expander("Generated Table"):
     if submit:
+        st.header("Generated Table")
         st.table(df.style.format('{:7,.1f}'))
+        st.header("Selected Coins")
+        st.code(optimal_selection(coins, amount, array))
