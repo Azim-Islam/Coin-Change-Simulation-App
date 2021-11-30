@@ -8,6 +8,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install streaml
 
 ```bash
 pip install streamlit
+pip install pandas
 ```
 ## Host Online
 Host the web app for free on [Streamlit Cloud](https://share.streamlit.io/).
