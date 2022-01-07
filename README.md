@@ -12,7 +12,7 @@ pip install pandas
 ```
 ## Host Online
 Host the web app for free on [Streamlit Cloud](https://share.streamlit.io/).
-
+# A Demo is Running at -> [Link](https://share.streamlit.io/azim-islam/coin-change-simulation-app/main/coin_change.py)
 
 ## Input/Output
 ![image](https://raw.githubusercontent.com/Azim-Islam/Coin-Change-Simulation-App/main/screenshot/io_ss.png)
